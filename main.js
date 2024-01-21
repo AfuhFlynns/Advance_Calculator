@@ -18,7 +18,7 @@ function calCulate(){
                 display_Output.textContent = input;
             }else if(key.value == "="){
                 let result = eval(input);
-
+                 arrange_Display(result);
                 display_Output.textContent = result;
                 cleanOutput(result);
             }else if(key.value == "brackets"){
@@ -114,6 +114,15 @@ function validateInput (value) {
             return true;
         }
         return true;
+    }
+}
+
+function arrange_Display(results){
+    const output_Data = results;
+    let i = 16;
+    if(output_Data.length >= i){
+        i++;
+        results.style.overflowX = `scroll`;
     }
 }
 
