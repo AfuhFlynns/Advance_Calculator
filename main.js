@@ -8,6 +8,7 @@ function calCulate(){
         key.value = key.dataset.key;
         key.onclick = function(){
             cleanInput(input);
+            validateInput(input);
             if(key.value =="clear"){
                 input ="";
                 display_Input.textContent ="";
@@ -54,6 +55,34 @@ function calCulate(){
         display_Output.textContent = formattedOutput; 
     }
 }
+
+}
+
+function cleanInput (input) {
+    let input_Array = input.split("");
+    let input_Array_Length = input_Array.length;
+
+    for (let i = 0; i < input_Array_Length; i++){
+        if(input_Array[i] == "*"){
+            input_Array[i] = `<span id="operator">*</span>`;
+        }else if(input_Array[i] == "/"){
+            input_Array[i] = `<span id="operator">/</span>`;
+        }else if(input_Array[i] == "+"){
+            input_Array[i] = `<span id="operator">+</span>`;
+        }else if(input_Array[i] == "-"){
+            input_Array[i] = `<span id="operator">-</span>`;
+        }else if(input_Array[i] == "("){
+            input_Array[i] = `<span id="brackets">(</span>`;
+        }else if(input_Array[i] == ")"){
+            input_Array[i] = `<span id="brackets">)</span>`;
+        }else if(input_Array[i] == "%"){
+            input_Array[i] = `<span id="percent">%</span>`;
+        }
+    }
+
+    input_Array.join("");
+}
+
 function addCommas(value) {
     let valueString = value.toString();
     let result = "";
@@ -64,35 +93,28 @@ function addCommas(value) {
         if (count % 3 === 0 && i !== 0) {
             result = "," + result;
         }
+        if(valueString.includes(".")){
+            result = "" + result;
+        }
     }
     return result;
 }
-}
 
-function cleanInput (input) {
-    let input_Array = input.split("");
-    let input_Array_Length = input_Array.length;
+function validateInput (value) {
+    let last_Input = value.slice(-1);
+    let operators = ["+", "-", "*", "/"];
 
-    for (let i = 0; i < input_Array_Length; i++){
-        if(input_Array[i] == "*"){
-            input_Array[i] = `<span class="operator">*</span>`;
-        }else if(input_Array[i] == "/"){
-            input_Array[i] = `<span class="operator">/</span>`;
-        }else if(input_Array[i] == "+"){
-            input_Array[i] = `<span class="operator">+</span>`;
-        }else if(input_Array[i] == "-"){
-            input_Array[i] = `<span class="operator">-</span>`;
-        }else if(input_Array[i] == "("){
-            input_Array[i] = `<span class="brackets">(</span>`;
-        }else if(input_Array[i] == ")"){
-            input_Array[i] = `<span class="brackets">)</span>`;
-        }else if(input_Array[i] == "%"){
-            input_Array[i] = `<span class="percent">%</span>`;
-        }
+    if(value == "." && last_Input == "."){
+        return false;
     }
-
-    input_Array.join("");
+    if(operators.includes(value)){
+        if(operators.includes(last_Input)){
+            return false;
+        }else{
+            return true;
+        }
+        return true;
+    }
 }
-
 
 calCulate();
