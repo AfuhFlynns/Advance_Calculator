@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="main.css"/>
+    <title>Flint_Calc</title>
+</head>
+<body>
+    <div class="app">
+        <div class="calculator">
+
+            <div class="display">
+                <div class="content">
+                    <div class="input"></div>
+                    <div class="output" id="results"></div>
+                </div>
+            </div>
+
+            <div class="keys">
+            <section>
+                    <div data-key="clear" class="key Action" value="clear">
+                <span class="green">AC</span>
+            </div>
+            <div data-key="brackets" class="key Action">
+                <span class="green">( )</span>
+            </div>
+            <div data-key="%" class="key Action">
+                <span class="green">%</span>
+            </div>
+            <div data-key="/" class="key Action">
+                <span class="orange">/</span>
+            </div>
+            </section>
+
+            <section>
+                <div data-key="7" class="key Action">
+                <span>7</span>
+            </div>
+            <div data-key="8" class="key Action">
+                <span>8</span>
+            </div>
+            <div data-key="9" class="key Action">
+                <span>9</span>
+            </div>
+            <div data-key="*" class="key Action">
+                <span class="orange">x</span>
+            </div>
+            </section>
+
+            <section>
+                <div data-key="4" class="key Action">
+                <span>4</span>
+            </div>
+            <div data-key="5" class="key Action">
+                <span>5</span>
+            </div>
+            <div data-key="6" class="key Action">
+                <span>6</span>
+            </div>
+            <div data-key="-" class="key Action">
+                <span class="orange">-</span>
+            </div>
+            </section>
+
+            <section>
+                <div data-key="1" class="key Action">
+                <span>1</span>
+            </div>
+            <div data-key="2" class="key Action">
+                <span>2</span>
+            </div>
+            <div data-key="3" class="key Action">
+                <span>3</span>
+            </div>
+            <div data-key="+" class="key Action">
+                <span class="orange">+</span>
+            </div>
+            </section>
+
+            <section>
+                <div data-key="backspace" class="key Action">
+                <span class="green">&lessdot;</span>
+            </div>
+            <div data-key="0" class="key Action">
+                <span>0</span>  
+            </div>
+            <div data-key="." class="key Action">
+                <span>.</span>
+            </div>
+            <div data-key="=" class="key Action">
+                <span class="orange" id="equals">=</span>
+            </div>
+            </section>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
