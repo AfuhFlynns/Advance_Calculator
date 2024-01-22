@@ -17,7 +17,7 @@ function calCulate(){
                 input = input.slice(0, -1);
                 display_Output.textContent = input;
             }else if(key.value == "="){
-                let result = eval(input);
+                let result = math.evaluate(input);
                  arrange_Display(result);
                 display_Output.textContent = result;
                 cleanOutput(result);
@@ -92,9 +92,17 @@ function addCommas(value) {
         count++;
         if (count % 3 === 0 && i !== 0) {
             result = "," + result;
-        }
-        if(valueString.includes(".")){
-            result = "" + result;
+        }else if(result.includes(".")|| result.includes("-")){
+            return result = value;
+        }for(let i = 20; valueString.length >=i; i++){
+            let size = 30;
+            let results = document.getElementById("results");
+            results.style.fontSize = `${size}px`;
+            if(valueString.length > 20){
+                results.style.fontSize = `${size -3}px`;
+            }else if(valueString.length > 26){
+                results.style.fontSize = `${size -6}px`;
+            }
         }
     }
     return result;
@@ -118,12 +126,6 @@ function validateInput (value) {
 }
 
 function arrange_Display(results){
-    const output_Data = results;
-    let i = 16;
-    if(output_Data.length >= i){
-        i++;
-        results.style.overflowX = `scroll`;
-    }
 }
 
 calCulate();
